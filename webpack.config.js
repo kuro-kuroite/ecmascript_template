@@ -1,5 +1,5 @@
-path = require('path')
-webpack = require('webpack')
+const path = require('path');
+require('webpack');
 
 module.exports = {
   entry: {
@@ -15,7 +15,7 @@ module.exports = {
 
   resolve: {
     alias: {
-      "@js": path.resolve(__dirname, 'src/js')
+      '@js': path.resolve(__dirname, 'src/js')
     },
     extensions: ['.js']
   },
@@ -26,13 +26,13 @@ module.exports = {
         test: /\.js$/,
         exclude: path.resolve(__dirname, 'node_modules'),
         use: [
-           {
-             loader: 'babel-loader'
-           }
+          {
+            loader: 'babel-loader'
+          }
         ]
       }
     ]
   },
 
   target: 'node'
-}
+};
