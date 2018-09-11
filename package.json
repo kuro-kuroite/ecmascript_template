@@ -14,9 +14,10 @@
     "precommit": "lint-staged",
     "prettier:fix": "yarn prettier --write src/js/**/*.js",
     "prettier:fix:dry": "yarn prettier --list-different src/js/**/*.js",
+    "prettier:watch": "yarn prettier:watch:config",
     "prettier:watch:config": "cat .gitignore .prettierignore > tmp/._prettierignore & watch \"yarn prettier --write * --ignore-path tmp/._prettierignore\" .",
     "watch": "yarn watch:all",
-    "watch:all": "yarn run-p lint:watch webpack:watch",
+    "watch:all": "yarn run-p prettier:watch lint:watch webpack:watch",
     "webpack:watch": "yarn webpack --watch"
   },
   "lint-staged": {
