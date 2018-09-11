@@ -24,6 +24,7 @@
     "lint:watch": "yarn lint:watch:all",
     "lint:watch:all": "watch \"yarn lint:all\" .",
     "precommit": "lint-staged",
+    "postcommit": "git update-index --again",
     "prettier:all": "run-p prettier:*:fix",
     "prettier:all:dry": "run-p prettier:*:fix:dry",
     "prettier:config:fix": "yarn prettier --write * --ignore-path tmp/._prettierignore",
