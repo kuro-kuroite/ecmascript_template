@@ -2,11 +2,12 @@
   "scripts": {
     "babel:compile": "yarn babel src/js/**/*.js --out-dir lib --source-maps inline",
     "babel:watch": "yarn babel src/js/**/*.js --watch --out-dir lib --source-maps inline",
+    "dev:ignore:all": "cat .gitignore .prettierignore > tmp/._prettierignore & cat .gitignore .prettierignore .eslintignore > tmp/._eslintignore",
     "eslint:fix": "yarn eslint src/js/**/*.js --fix",
     "eslint:fix:dry": "yarn eslint src/js/**/*.js --fix-dry-run",
     "// [add csslint:fix, csslint:fix:dry]": "can add files like css",
     "// [describe format:lint:watch:all]": "trigger all files are formatted and linted in realtime",
-    "format:lint:watch:all": "yarn lint:watch:all",
+    "format:lint:watch:all": "run-p dev:ignore:all lint:watch:all",
     "lint": "yarn lint:all",
     "lint:all": "run-p lint:*:fix",
     "lint:all:dry": "run-p lint:*:fix:dry",
@@ -17,7 +18,7 @@
     "// [add lint:css:fix, lint:css:fix:dry]": "can add files like css",
     "//": "escape \"yarn lint\" for windows",
     "lint:watch": "yarn lint:watch:all",
-    "lint:watch:all": "cat .gitignore .prettierignore > tmp/._prettierignore & watch \"yarn lint:all\" .",
+    "lint:watch:all": "watch \"yarn lint:all\" .",
     "precommit": "lint-staged",
     "prettier:all": "run-p prettier:*:fix",
     "prettier:all:dry": "run-p prettier:*:fix:dry",
@@ -28,7 +29,7 @@
     "// [add prettier:css:fix prettier:css:fix:dry]": "can add files like css",
     "prettier:watch": "yarn prettier:watch:all",
     "prettier:watch:all": "run-p prettier:watch:*:fix",
-    "prettier:watch:config:fix": "cat .gitignore .prettierignore > tmp/._prettierignore & watch \"yarn prettier:config:fix\" .",
+    "prettier:watch:config:fix": "watch \"yarn prettier:config:fix\" .",
     "prettier:watch:js:fix": "watch \"yarn prettier:js:fix\" src/js --interval=1",
     "// [add prettier:watch:css:fix]": "can add files like css",
     "watch": "yarn watch:all",
@@ -37,8 +38,9 @@
   },
   "lint-staged": {
     "*.js": [
-      "yarn prettier --write",
-      "yarn eslint --fix",
+      "yarn dev:ignore:all",
+      "yarn prettier --ignore-path tmp/._prettierignore --write",
+      "yarn eslint --ignore-path tmp/._eslintignore --fix",
       "git add"
     ]
   },
