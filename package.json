@@ -47,6 +47,11 @@
       "yarn prettier --ignore-path tmp/._prettierignore --write",
       "yarn eslint --ignore-path tmp/._eslintignore --fix",
       "git add"
+    ],
+    "*.{json,md,yml}": [
+      "yarn dev:ignore:all:sanitize",
+      "yarn prettier --ignore-path tmp/._prettierignore --write",
+      "git add"
     ]
   },
   "devDependencies": {
