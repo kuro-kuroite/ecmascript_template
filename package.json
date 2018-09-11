@@ -2,7 +2,11 @@
   "scripts": {
     "babel:compile": "yarn babel src/js/**/*.js --out-dir lib --source-maps inline",
     "babel:watch": "yarn babel src/js/**/*.js --watch --out-dir lib --source-maps inline",
-    "dev:ignore:all": "cat .gitignore .prettierignore > tmp/._prettierignore & cat .gitignore .prettierignore .eslintignore > tmp/._eslintignore",
+    "dev:ignore:all": "run-p dev:ignore:*:fake",
+    "// HACK dev:ignore:all:sanitize": "& : を加えたのは，lint-staged からくるファイル名の引数を排除するため(& : path/to/file)",
+    "dev:ignore:all:sanitize": "yarn dev:ignore:all:sanitize & : ",
+    "dev:ignore:eslint:fake": "cat .gitignore .prettierignore .eslintignore > tmp/._eslintignore & echo ",
+    "dev:ignore:prettier:fake": "cat .gitignore .prettierignore > tmp/._prettierignore & echo ",
     "eslint:fix": "yarn eslint src/js/**/*.js --fix",
     "eslint:fix:dry": "yarn eslint src/js/**/*.js --fix-dry-run",
     "// [add csslint:fix, csslint:fix:dry]": "can add files like css",
@@ -38,7 +42,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "yarn dev:ignore:all",
+      "yarn dev:ignore:all:sanitize",
       "yarn prettier --ignore-path tmp/._prettierignore --write",
       "yarn eslint --ignore-path tmp/._eslintignore --fix",
       "git add"
