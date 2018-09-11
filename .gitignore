@@ -131,4 +131,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # Temporary npm script file for prettier:watch:*
-tmp/._prettierignore
+tmp/._*
