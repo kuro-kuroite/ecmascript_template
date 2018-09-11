@@ -129,3 +129,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Temporary npm script file for prettier:watch:*
+tmp/._prettierignore
