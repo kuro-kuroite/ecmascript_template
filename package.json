@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "babel:compile": "yarn babel src/js --out-dir lib --source-maps inline",
-    "babel:watch": "yarn babel src/js --watch --out-dir lib --source-maps inline",
-    "eslint:fix": "yarn eslint src/js --fix",
-    "eslint:fix:dry": "yarn eslint src/js --fix-dry-run",
+    "babel:compile": "yarn babel src/js/**/*.js --out-dir lib --source-maps inline",
+    "babel:watch": "yarn babel src/js/**/*.js --watch --out-dir lib --source-maps inline",
+    "eslint:fix": "yarn eslint src/js/**/*.js --fix",
+    "eslint:fix:dry": "yarn eslint src/js/**/*.js --fix-dry-run",
     "// [add csslint:fix, csslint:fix:dry]": "can add files like css",
     "// [describe format:lint:watch:all]": "trigger all files are formatted and linted in realtime",
     "format:lint:watch:all": "yarn lint:watch:all",
