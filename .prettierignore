@@ -12,5 +12,3 @@ dist/
 lib/
 # igrnore because it make only by yarn
 yarn.lock
-
-
