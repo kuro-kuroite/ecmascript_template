@@ -7,6 +7,7 @@
     "dev:ignore:all:sanitize": "yarn dev:ignore:all:sanitize & : ",
     "dev:ignore:eslint:fake": "cat .gitignore .prettierignore .eslintignore > tmp/._eslintignore & echo ",
     "dev:ignore:prettier:fake": "cat .gitignore .prettierignore > tmp/._prettierignore & echo ",
+    "dev:watch": "yarn watch:all",
     "eslint:fix": "yarn eslint src/js/**/*.js --fix",
     "eslint:fix:dry": "yarn eslint src/js/**/*.js --fix-dry-run",
     "// [add csslint:fix, csslint:fix:dry]": "can add files like css",
