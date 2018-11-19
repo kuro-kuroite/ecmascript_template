@@ -2,7 +2,9 @@ module.exports = {
   extends: ['airbnb-base', 'prettier'],
   rules: {
     'import/no-unresolved': 'warn',
-    'prettier/prettier': 'error'
+    // HACK: add trailingComma all in .prettierrc.js
+    'comma-dangle': ['error', 'always-multiline'],
+    'prettier/prettier': 'error',
   },
-  plugins: ['prettier']
+  plugins: ['prettier'],
 };
