@@ -3,21 +3,21 @@ require('webpack');
 
 module.exports = {
   entry: {
-    index: path.resolve(__dirname, 'src/js/index.js')
+    index: path.resolve(__dirname, 'src/js/index.js'),
   },
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: '[name].js',
   },
 
   mode: process.env.NODE_ENV || 'development',
 
   resolve: {
     alias: {
-      '@js': path.resolve(__dirname, 'src/js')
+      '@js': path.resolve(__dirname, 'src/js'),
     },
-    extensions: ['.js']
+    extensions: ['.js'],
   },
 
   module: {
@@ -27,12 +27,12 @@ module.exports = {
         exclude: path.resolve(__dirname, 'node_modules'),
         use: [
           {
-            loader: 'babel-loader'
-          }
-        ]
-      }
-    ]
+            loader: 'babel-loader',
+          },
+        ],
+      },
+    ],
   },
 
-  target: 'node'
+  target: 'node',
 };
