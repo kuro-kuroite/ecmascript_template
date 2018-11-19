@@ -1,9 +1,9 @@
 # editorconfig.org
-# TODO: require to install any package denpendent on your editor
+# TODO: require to install any package which depends on your editor
 
 root = true
 
-# see these propaties at https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+# see these properties at https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
 
 [*]
 
